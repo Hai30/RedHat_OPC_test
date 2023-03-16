@@ -5,5 +5,3 @@ metadata:
 immutable: false
 data:
 {{ (.Files.Glob "html/*").AsConfig | indent 2 }}
-annotations:
-  argocd.argoproj.io/sync-wave: "1"
