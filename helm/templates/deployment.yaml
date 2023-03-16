@@ -18,7 +18,6 @@ spec:
             name: index.html
             defaultMode: 420
       containers:
-
         - resources: {}
           livenessProbe:
             httpGet:
