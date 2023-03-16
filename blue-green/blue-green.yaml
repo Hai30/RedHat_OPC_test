@@ -3,14 +3,15 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: blue-green-route
   annotations:
-    haproxy.router.openshift.io/disable_cookies='true'
-    haproxy.router.openshift.io/balance='roundrobin'
+    haproxy.router.openshift.io/balance: random
 spec:
   to:
     kind: Service
-    name: user10-hello-chart-service
-    weight: 10
+    name: user10-hello-chart
+    weight: 60
   alternateBackends:
   - kind: Service
     name: user10-hello-world
-    weight: 20
+    weight: 40
+
+    
