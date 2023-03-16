@@ -12,8 +12,9 @@ spec:
       labels:
         app: {{ .Release.Name }}
       annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/ConfigMap.yaml") . | sha256sum }}
         rollme: {{ randAlphaNum 5 | quote }}
-        argocd.argoproj.io/sync-wave: "2"
+        argocd.argoproj.io/sync-wave: "5"
         argocd.argoproj.io/automated-rollout: "true"
         argocd.argoproj.io/automated-rollout-annotation: "autoRollout"
     spec:
