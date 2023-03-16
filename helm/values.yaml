@@ -4,6 +4,25 @@ containers:
   containerPort: 8080
   image: 'quay.io/hai30/helloworld'
   tag: 'chart_v1'
+  
+probes:
+  readiness:
+    path: <current path>
+    initialDelaySeconds: <current initialDelaySeconds>
+    timeoutSeconds: <current timeoutSeconds>
+    periodSeconds: <current periodSeconds>
+    successThreshold: <current successThreshold>
+    failureThreshold: <current failureThreshold>
+  liveness:
+    path: <current path>
+    initialDelaySeconds: <current initialDelaySeconds>
+    timeoutSeconds: <current timeoutSeconds>
+    periodSeconds: <current periodSeconds>
+    successThreshold: <current successThreshold>
+    failureThreshold: <current failureThreshold>
+volume:
+  mount:
+    path: <current mountPath>
 
 service:
   servicePort: 8080
