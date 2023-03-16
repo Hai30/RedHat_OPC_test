@@ -24,5 +24,7 @@ volume:
   mount:
     path: /tmp/html
 
+test: Healty
+
 service:
   servicePort: 8080
