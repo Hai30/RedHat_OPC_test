@@ -30,10 +30,9 @@ spec:
           terminationMessagePolicy: File
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
           ...  # This will mount our File to the Pod File system
-      containers:
          volumeMounts:
          - name: index-html
-           mountPath: src/html # this will mount the html.index file to it application location
+           mountPath: /tmp/html # this will mount the html.index file to it application location
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
