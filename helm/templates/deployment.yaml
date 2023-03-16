@@ -13,6 +13,9 @@ spec:
         app: {{ .Release.Name }}
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
+        argocd.argoproj.io/sync-wave: "2"
+        argocd.argoproj.io/automated-rollout: "true"
+        argocd.argoproj.io/automated-rollout-annotation: "autoRollout"
     spec:
       volumes:
         - name: index-html
