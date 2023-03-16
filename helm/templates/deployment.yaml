@@ -57,7 +57,6 @@ spec:
             mountPath: /tmp/html # this will mount the html.index file to it application location
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
-
   strategy:
     type: RollingUpdate
     rollingUpdate:
