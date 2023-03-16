@@ -11,6 +11,13 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
+        ...  #this will Create Volume From our ConfigMap
+    spec:
+      volumes:
+        - name: index-html
+          configMap:
+            name: index.html
+            defaultMode: 420
     spec:
       containers:
         - resources: {}
@@ -22,6 +29,11 @@ spec:
           imagePullPolicy: Always
           terminationMessagePolicy: File
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
+          ...  # This will mount our File to the Pod File system
+      containers:
+         volumeMounts:
+         - name: index-html
+           mountPath: /tmp/html # this will mount the html.index file to it application location
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
