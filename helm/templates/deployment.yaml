@@ -18,6 +18,8 @@ spec:
             name: index.html
             defaultMode: 420
       containers:
+
+        - resources: {}
           livenessProbe:
             httpGet:
               path: /health/liveliness
@@ -38,7 +40,6 @@ spec:
             periodSeconds: 10 # the abount of time to wait between checks
             successThreshold: 1 # count to decalre seccessfull 
             failureThreshold: 3 # count to decalre failure 
-        - resources: {}
           terminationMessagePath: /dev/termination-log
           name: {{ .Release.Name }}
           env:
