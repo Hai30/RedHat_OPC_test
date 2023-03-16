@@ -2,6 +2,8 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: {{ .Release.Name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   replicas: {{ .Values.ReplicaNumber }}
   selector:
@@ -13,10 +15,7 @@ spec:
         app: {{ .Release.Name }}
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/ConfigMap.yaml") . | sha256sum }}
-        rollme: {{ randAlphaNum 5 | quote }}
-        argocd.argoproj.io/sync-wave: "10"
-        argocd.argoproj.io/automated-rollout: "true"
-        argocd.argoproj.io/automated-rollout-annotation: "autoRollout"
+        rollme: {{ randAlphaNum 5 | quote }}       
     spec:
       volumes:
         - name: index-html
