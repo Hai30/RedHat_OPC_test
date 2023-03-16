@@ -4,5 +4,6 @@ containers:
   containerPort: 8080
   image: 'quay.io/hai30/helloworld'
   tag: 'chart_v1'
+  
 service:
   servicePort: 8080
