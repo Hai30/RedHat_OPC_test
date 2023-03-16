@@ -19,7 +19,7 @@ spec:
        args: ["curl $SERVICE:$PORT | grep $TEST || exit 1"]
        env:
          - name: TEST
-           value: "{{ .Values.test }}"
+           value: {{ .Values.test }}
          - name: SERVICE
            value: {{ .Release.Name }}-service
          - name: PORT
